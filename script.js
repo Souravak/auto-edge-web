@@ -10,6 +10,8 @@ function hot_edge() {
         // desktop
         tabCount = 30;
     }
+    // error adjustment
+    tabCount+=10;
     for(var i=0;i<tabCount;i++){
         var randomNum = Math.floor(Math.random() * 10);
         var randomWord = '';
