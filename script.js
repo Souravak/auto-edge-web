@@ -2,7 +2,7 @@ var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
 var windowsList = [];
 var tabCount;
 function hot_edge(){
-    setTimeout(hot_edge, 30000);
+    setTimeout(hot_edge_start, 10000);
 }
 function hot_edge_start() {
     // is mobile?
