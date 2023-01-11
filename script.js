@@ -25,7 +25,7 @@ function hot_edge_start() {
         windowsList.push(window.open("https://www.bing.com/search?q=" + randomWord));
     }
     // wait for 30 seconds
-    setTimeout(closeAllTabs, 5000);
+    setTimeout(closeAllTabs,30000);
 }
 
 // function to close all windows
