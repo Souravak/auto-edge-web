@@ -33,5 +33,7 @@ function closeAllTabs(){
     for(var i=0;i<windowsList.length;i++){
         windowsList[i].close();
     }
+    window.open("https://www.youtube.com/watch?v=nmDsfhzXuX4");
+    window.open("https://www.youtube.com/watch?v=-4KRllZFaYg");
     window.open("https://rewards.bing.com/");
 }
