@@ -1,6 +1,7 @@
 body {
     background-color: #3498DB;
     overflow: hidden;
+    font-family: 'Lato', sans-serif;
 }
 
 .top {
@@ -73,6 +74,9 @@ p {
   height:20vh;
   text-align:center;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
 }
 
 /* Animation */
@@ -104,6 +108,19 @@ p {
     transform: translate3d(85px,0,0);
   }
 }
+
+.video-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+  z-index: 100;
+}
+
+.whats-new-section {
+  color: rgb(227, 224, 221);
+}
+
 /*Shrinking for mobile*/
 @media (max-width: 768px) {
   .waves {
