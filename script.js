@@ -11,10 +11,10 @@ function hot_edge_start() {
     // is mobile?
     if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
         // mobile
-        tabCount = 30;
+        tabCount = 20;
     } else {
         // desktop
-        tabCount = 40;
+        tabCount = 35;
     }
     // error adjustment
     tabCount+=10;
@@ -45,12 +45,12 @@ function closeAllTabs(){
 }
 
 function openAds_1(){
-    window.open("https://youtu.be/evQGDpYGjNI")
+    window.open("https://www.youtube.com/shorts/Bnify3Bs2QE")
     setTimeout(openAds_2, 3000);
 }
 
 function openAds_2(){
-    window.open("https://youtu.be/nmDsfhzXuX4")
+    window.open("https://youtu.be/a8wO5vBCB3g")
     setTimeout(openRewards, 3000);
 }
 
