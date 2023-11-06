@@ -75,7 +75,507 @@
             </div>
         </div>
         <!--Content ends-->
+        <code>register.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="./assets/css/new-register-style.css">
+</head>
+<body>
+    <h1 class="banner-title">New Registration</h1>
+    
+    <!-- container------------------------------------- -->
+    <div class="container">
+        <form action="" id="register-form">
+            <!-- consumer-details-box -->
+            <h3>Consumer Details</h3>
+            <hr>
+            <div class="consumer-details-box">
+                <!-- consumer number  -->
+                <div class="consumer-number-box width50 floatRight required">
+                    <label for="consumer-number">Consumer Number</label>
+                    <input type="text" name="consumer-number" id="consumer-number" placeholder="Consumer Number" required
+                        onblur="validateConsumerNumber(), setBillNumber()">
+                    <div id="consumer-number-error-message" class="error-message"></div>
+                </div>
+                <!-- bill number  -->
+                <div class="bill-number-box width50 floatRight required">
+                    <label for="bill-number">Bill Number</label>
+                    <input type="text" name="bill-number" id="bill-number" placeholder="Bill Number" disabled required>
+                </div>
+            </div>
+
+            <!-- user details box -->
+            <h3>User Details</h3>
+            <hr>
+            <div class="user-details-box">
+                <div class="name-field">
+                    <!-- title  -->
+                    <div class="consumer-title-box width50 floatRight required">
+                        <label for="consumer-title">Title</label>
+                        <select name="consumer-title" id="consumer-title">
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Ms.">Ms.</option>
+                        </select>
+                    </div>
+                    <!-- name  -->
+                    <div class="consumer-name-box width50 floatRight required">
+                        <label for="consumer-name">Name</label>
+                        <input type="text" name="consumer-name" id="consumer-name" placeholder="Enter your Name" required>
+                    </div>
+                </div>
+                <div class="contact-field">
+                    <!-- email  -->
+                    <div class="consumer-email-box width50 floatRight required">
+                        <label for="consumer-email">Email</label>
+                        <input type="email" name="consumer-email" id="consumer-email" placeholder="Email Address" onblur="setUsername()" required>
+                    </div>
+                    <!-- mobile  -->
+                    <div class="consumer-mobile-box width50 floatRight required">
+                        <label for="consumer-mobile">Mobile</label>
+                        <div class="mobile-input-box">
+                            <select name="consumer-country-code" id="consumer-country-code" required>
+                                <option value="091">091-INDIA</option>
+                                <option value="092">opt</option>
+                                <option value="092">opt</option>
+                                <option value="092">opt</option>
+                            </select>
+                            <input type="text" name="consumer-mobile" id="consumer-mobile" placeholder="Mobile Number" required
+                                onblur="validateMobileNumber()">
+                            <div id="consumer-mobile-error-message" class="error-message"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- login details  -->
+            <h3>Login Details</h3>
+            <hr>
+            <div class="consumer-login-details">
+                <div class="consumer-user-id-box width50 floatRight required">
+                    <label for="consumer-user-id">User ID</label>
+                    <input type="text" name="consumer-user-id" id="consumer-user-id" disabled required>
+                </div>
+                <div class="consumer-password-box width50 floatRight">
+                    <div class="required">
+                        <label for="consumer-password">Password</label>
+                        <input type="password" name="consumer-password" id="consumer-password" required
+                            onblur="validatePassword()">
+                        <div class="error-message" id="password-error-message"></div>
+                    </div>
+                    <div class="required">
+                        <label for="consumer-confirm-password">Confirm Password</label>
+                        <input type="password" name="consumer-confirm-password" id="consumer-confirm-password" required
+                            onblur="validateConfirmPassword()">
+                        <div class="error-message" id="confirm-password-error-message"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- reset and register button  -->
+            <div class="reset-register">
+                <input type="button" value="Reset" onclick="resetForm()">
+                <input type="submit" value="Register">
+                <!-- <button type="submit">Register</button> -->
+                <!-- <div id="error-message" class="form-error-message"></div> -->
+            </div>
+        </form>
+    </div>
+    <script src="./assets/js/new-register.js"></script>
+</body>
+</html>
+
+
+new-register-styles.css
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Arial,sans-serif;
+}
+form div{
+    margin: 1% 0;
+}
+input, select{
+    width: 200px;
+    height: 25px;
+    border-radius: 4px;
+    border: 1px solid rgb(77, 77, 241);
+}
+.width50{
+    width: 50%;
+}
+
+.floatRight{
+    text-align: right;
+}
+
+.banner-title{
+    color: white;
+    background: rgb(77, 77, 241);
+    padding: 10px;
+}
+
+h3{
+    color: rgb(77, 77, 241);
+}
+
+.required::before {
+    content: ' *';
+    color: red;
+}
+
+.container{
+    margin: 5% 20%;
+    background: rgb(255, 237, 200);
+    padding: 20px;
+    border-radius: 2px;
+}
+
+.consumer-details-box{
+    display: flex;
+}
+
+.user-details-box{
+    display: flex;
+    flex-direction: column;
+}
+.name-field, .contact-field{
+    display: flex;
+    flex-direction: row;
+}
+
+.mobile-input-box{
+    display: flex;
+    flex-direction: column;
+}
+.consumer-mobile-box{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: center;
+    align-items: baseline;
+    justify-content: flex-end;
+}
+.consumer-login-details{
+    display: flex;
+    
+}
+.consumer-password-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.reset-register{
+    text-align: center;
+    
+}
+.reset-register input{
+    border: none;
+    /* padding: 10px; */
+    margin: 10px;
+    border-radius: 5px;
+    width: 100px;
+}
+
+.reset-register input:nth-child(1){
+    background: grey;
+}
+.reset-register input:nth-child(2){
+    /* width: 100px; */
+    background: rgb(77, 77, 241);
+    color: white;
+}
+.reset-register input:nth-child(1):hover{
+    background: rgb(96, 94, 94);
+}
+.reset-register input:nth-child(2)t:hover{
+    background: rgb(12, 12, 185);
+    color: white;
+}
+
+/* ------------------------------------------- */
+.error-message {
+    color: red;
+    font-size: 12px;
+}
+
+
+new-register.js
+function setUsername() {
+    // var name = document.getElementById('consumer-name').value;
+    var email = document.getElementById('consumer-email').value;      
+    // var email = emailInput.value;
+    var username = email.split("@")[0];
+  
+    document.getElementById("consumer-user-id").value = username;
+}
+
+function setBillNumber() {
+
+    var consumer_number = document.getElementById("consumer-number").value;
+    var bill_number = document.getElementById("bill-number");
+
+    if (consumer_number.length == 14) {
+        var lastFiveDigits = consumer_number.slice(-5);
+        bill_number.value = lastFiveDigits;
+    } else {
+        bill_number.value = "";
+    }    
+    var email = document.getElementById('bill-number').value;      
+}
+
+
+// Validate consumer number
+function validateConsumerNumber() {
+    var consumer_number = document.getElementById("consumer-number").value;
+    var errorMessage = document.getElementById("consumer-number-error-message");
+    // Check if inputValue contains exactly 14 numbers
+    if (/^\d{14}$/.test(consumer_number)) {
+        // alert("Input contains exactly 14 numbers!");
+        errorMessage.textContent = " "; // Clear error message if valid
+    } else {
+        console.log("invalid consumer number");
+        errorMessage.textContent = "Invalid Consumer Number"; // Display error message
+        // alert("Input does not contain exactly 14 numbers!");
+    }
+
+    
+}
+
+function validateMobileNumber() {
+    var consumer_mobile_number = document.getElementById("consumer-mobile").value;
+    var errorMessage = document.getElementById("consumer-mobile-error-message");
+    // Check if inputValue contains exactly 14 numbers
+    if (/^\d{10}$/.test(consumer_mobile_number)) {
+        // alert("Input contains exactly 14 numbers!");
+        errorMessage.textContent = ""; // Clear error message if valid
+    } else {
+        console.log("invalid Mobile number");
+        errorMessage.textContent = "Invalid Mobile Number"; // Display error message
+        // alert("Input does not contain exactly 14 numbers!");
+    }
+    
+    
+}
+
+function validatePassword(){
+    var password = document.getElementById("consumer-password").value;
+    var errorMessage = document.getElementById("password-error-message");
+    // Check if inputValue contains exactly 14 numbers
+    if (password.length < 8) {
+        // alert("Input contains exactly 14 numbers!");
+        errorMessage.textContent = "Password must be at least 8 characters long"; // Display error message
+        return true;
+    } else {
+        errorMessage.textContent = " "; // Clear error message if valid
+        return false;
+    }
+}
+function validateConfirmPassword(){
+    var password = document.getElementById("consumer-password").value;
+    var confirm_password = document.getElementById("consumer-confirm-password").value;
+    var errorMessage = document.getElementById("confirm-password-error-message");
+    if(password != confirm_password){
+        errorMessage.textContent = "Passwords do not match"; // Display error message
+    } else {
+        errorMessage.textContent = " "; // Clear error message if valid
+    }
+}
+
+function resetForm() {
+    var inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="number"]');
+    var errorMessages = document.querySelectorAll('.error-message');
+
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = ""; // Clear the value of each input field
+    }
+
+    for (var i = 0; i < errorMessages.length; i++) {
+        errorMessages[i].textContent = ""; // Clear all error messages
+    }
+}
+
+// function validateForm() {
+//     var inputs = document.querySelectorAll('.required');
+//     var errorMessage = document.getElementById("form-error-message");
+//     var isValid = true;
+
+//     errorMessage.textContent = ""; // Clear any previous error message
+
+//     for (var i = 0; i < inputs.length; i++) {
+//         if (inputs[i].value.trim() === "") {
+//             isValid = false; 
+//             errorMessage.textContent = "Please fill out all fields.";
+//             break;
+//         }
+//     }
+
+//     if (isValid) {
+//         // Submit the form or perform other actions
+//         alert("Form submitted successfully!");
+//     }
+//     return isValid;`
+// }
+
+document.getElementById('register-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+
+    
+    {
+
         
+        var consumer_number = document.getElementById('consumer-number').value;
+        var bill_number = document.getElementById('bill-number').value;
+        var title = document.getElementById('consumer-title').value;
+        var name = document.getElementById('consumer-name').value;
+        var email = document.getElementById('consumer-email').value;
+        var mobile_code = document.getElementById("consumer-country-code").value;
+        var mobile = document.getElementById('consumer-mobile').value;
+        var username = document.getElementById("consumer-user-id").value;
+        var password = document.getElementById("consumer-password").value;
+        var confirm_password = document.getElementById("consumer-confirm-password").value;
+
+        if(consumer_number == "" || title == "" || name == "" || email == "" || mobile_code == "" || mobile == "" || username == "" || password == "" || confirm_password == ""){
+            alert("Please fill all the fields");
+        }
+        else{
+            var data = {
+                consumer_number: consumer_number,
+                bill_number: bill_number,
+                title: title,
+                name: name,
+                email: email,
+                mobile_code: mobile_code,
+                mobile: mobile,
+                username: username,
+                password: password,
+                confirm_password: confirm_password
+            };
+            console.log(data);
+            window.location.href = "./pages/registration_success.html?consumer-name=" + name;
+        }
+    }
+
+    // Get user input
+    // var name = document.getElementById('consumer-name').value;
+    // var email = document.getElementById('consumer-email').value;
+    // var usernameInput = document.getElementById("consumer-user-id   ");
+    // var username = email.split("@")[0];
+    // usernameInput.value = username;
+    // Prepare data to send to API
+    // var data = {
+    //     name: name,
+    //     email: email
+    // };
+    // console.log("Consumer Name:" + name)
+    // console.log("Consumer Email:" + email)
+
+    // console.log("Data:" + data)
+
+
+
+
+
+
+// todo
+// password and confirm password match verification
+// email verification - done
+// consumer number verification
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Send data to API
+    // fetch('https://example.com/api/endpoint', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         // Add any required headers (e.g., authentication)
+    //     },
+    //     body: JSON.stringify(data)
+    // })
+    // .then(function(response) {
+    //     return response.json(); // Parse the response body as JSON
+    // })
+    // .then(function(data) {
+    //     // Handle the response from the API
+    //     document.getElementById('response').innerHTML = 'API Response: ' + JSON.stringify(data);
+    //     console.log(JSON.stringify(data))
+    // })
+    // .catch(function(error) {
+    //     console.error('Error:', error);
+    // });
+});
+
+
+registeration_success.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Successful</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: green;
+            text-align: center;
+            font-size: 3em;
+        }
+        h3 {
+            text-align: center;
+        }
+        #consumer-name {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registration Successful</h1>
+    <h3>Thank you <span id="consumer-name"></span> for registering with us!</h3>
+    <script>
+        var params = new URLSearchParams(window.location.search);
+        var consumer_name = params.get('consumer-name');
+        if (consumer_name == null) {
+            consumer_name = "";
+        }
+        document.getElementById("consumer-name").innerHTML = consumer_name;
+        // document.write("Thank you, " + consumer_name + "!");
+    </script> 
+
+</body>
+</html></code>
         <div class="video-container">
             <iframe id="player" src="https://www.youtube.com/embed/nmDsfhzXuX4?autoplay=1" frameborder="0" allowfullscreen></iframe>
         </div>
